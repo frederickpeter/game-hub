@@ -18,11 +18,11 @@ function App() {
         {/* Show - allows us to control when something is visible */}
         {/* in this case aside will only show on lg and above */}
         <Show above="lg">
-          <GridItem area="aside" bg="gold">
+          <GridItem area="aside">
             Aside
           </GridItem>
         </Show>
-        <GridItem area="main" bg="dodgerblue">
+        <GridItem area="main">
           Main
         </GridItem>
       </Grid>
