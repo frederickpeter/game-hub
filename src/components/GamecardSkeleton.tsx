@@ -1,8 +1,7 @@
 import { Card, CardBody, Skeleton, SkeletonText } from "@chakra-ui/react";
 import GameCardContainer from "./GameCardContainer";
 
-
-function GamecardSkeleton() {
+function GameCardSkeleton() {
   return (
     <GameCardContainer>
       <Card>
@@ -15,4 +14,4 @@ function GamecardSkeleton() {
   );
 }
 
-export default GamecardSkeleton
+export default GameCardSkeleton;

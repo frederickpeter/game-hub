@@ -11,7 +11,7 @@ interface Response<T> {
 
 const useData = <T>(endpoint:string) => {
   const [data, setData] = useState<T[]>([]);
-  const [error, setError] = useState([]);
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
