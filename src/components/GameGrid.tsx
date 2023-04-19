@@ -2,7 +2,8 @@ import { SimpleGrid, Text } from "@chakra-ui/react";
 import { GameQuery } from "../App";
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
-import GameCardSkeleton from "./GameCardSkeleton";
+// import GameCardSkeleton from "./GameCardSkeleton";
+import GameCardSkeleton2 from "./GameCardSkeleton2";
 
 interface Props {
   gameQuery: GameQuery;
@@ -21,7 +22,7 @@ function GameGrid({ gameQuery }: Props) {
       padding="10px"
     >
       {isLoading &&
-        skeletons.map((skeleton) => <GameCardSkeleton key={skeleton} />)}
+        skeletons.map((skeleton) => <GameCardSkeleton2 key={skeleton} />)}
       {data.map((game) => (
         <GameCard key={game.id} game={game} />
       ))}
