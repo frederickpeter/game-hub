@@ -1,4 +1,4 @@
-import { Button, HStack, Image, List, ListItem } from "@chakra-ui/react";
+import { Button, Heading, HStack, Image, List, ListItem } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
 import GenreListSkeleton from "./GenreListSkeleton";
@@ -16,31 +16,37 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   //   if (isLoading) return <Spinner />;
 
   return (
-    <List>
-      {isLoading &&
-        skeletons.map((skeleton) => <GenreListSkeleton key={skeleton} />)}
-      {data.map((genre) => (
-        <ListItem key={genre.id} paddingY={1}>
-          <HStack>
-            <Image
-              src={getCroppedImageUrl(genre.image_background)}
-              boxSize="32px"
-              borderRadius={8}
-            />
+    <>
+      <Heading fontSize='2xl' marginBottom={3}>Genres</Heading>
+      <List>
+        {isLoading &&
+          skeletons.map((skeleton) => <GenreListSkeleton key={skeleton} />)}
+        {data.map((genre) => (
+          <ListItem key={genre.id} paddingY={1}>
+            <HStack>
+              <Image
+                src={getCroppedImageUrl(genre.image_background)}
+                objectFit="cover"
+                boxSize="32px"
+                borderRadius={8}
+              />
 
-            <Button
-              fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
-              color={genre.id === selectedGenre?.id ? "red.500" : "current"}
-              onClick={() => onSelectGenre(genre)}
-              variant="link"
-              fontSize="large"
-            >
-              {genre.name}
-            </Button>
-          </HStack>
-        </ListItem>
-      ))}
-    </List>
+              <Button
+                whiteSpace="normal"
+                textAlign="left"
+                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+                color={genre.id === selectedGenre?.id ? "red.500" : "current"}
+                onClick={() => onSelectGenre(genre)}
+                variant="link"
+                fontSize="large"
+              >
+                {genre.name}
+              </Button>
+            </HStack>
+          </ListItem>
+        ))}
+      </List>
+    </>
   );
 };
 
