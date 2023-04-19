@@ -7,6 +7,7 @@ import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import SortingSelector from "./components/SortingSelector";
+import GameHeading from "./components/GameHeading";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -32,7 +33,11 @@ function App() {
         }}
       >
         <GridItem area="nav">
-          <Navbar onSearch={(searchText) => setGameQuery({...gameQuery, searchText})} />
+          <Navbar
+            onSearch={(searchText) =>
+              setGameQuery({ ...gameQuery, searchText })
+            }
+          />
         </GridItem>
         {/* Show - allows us to control when something is visible */}
         {/* in this case aside will only show on lg and above */}
@@ -46,6 +51,7 @@ function App() {
         </Show>
 
         <GridItem area="main">
+          <GameHeading gameQuery={gameQuery} />
           <Flex paddingLeft={2} marginBottom={5}>
             <Box marginRight={5}>
               <PlatformSelector
