@@ -13,6 +13,10 @@ function App() {
           base: `"nav" "main"`,
           lg: `"nav nav" "aside main"`,
         }}
+        templateColumns={{
+          base: '1fr',
+          lg: '200px 1fr'
+        }}
       >
         <GridItem area="nav">
           <Navbar />
@@ -20,7 +24,7 @@ function App() {
         {/* Show - allows us to control when something is visible */}
         {/* in this case aside will only show on lg and above */}
         <Show above="lg">
-          <GridItem area="aside">
+          <GridItem area="aside" paddingX={5}>
             <GenreList />
           </GridItem>
         </Show>
