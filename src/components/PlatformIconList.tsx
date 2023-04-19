@@ -18,6 +18,7 @@ interface Props {
 }
 
 function PlatformIconList({ platforms }: Props) {
+
   const iconMap: { [key: string]:IconType } = {
     pc: FaWindows,
     playstation: FaPlaystation,
@@ -29,6 +30,7 @@ function PlatformIconList({ platforms }: Props) {
     ios: MdPhoneIphone,
     web: BsGlobe,
   };
+  
   return (
     <HStack margin={1}>
       {platforms.map((platform) => (
