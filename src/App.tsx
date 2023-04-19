@@ -12,6 +12,7 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  searchText: string;
 }
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
         }}
       >
         <GridItem area="nav">
-          <Navbar />
+          <Navbar onSearch={(searchText) => setGameQuery({...gameQuery, searchText})} />
         </GridItem>
         {/* Show - allows us to control when something is visible */}
         {/* in this case aside will only show on lg and above */}
